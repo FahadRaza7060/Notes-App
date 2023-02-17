@@ -1,17 +1,17 @@
 import axios from "axios";
 
 
-const api_url="http://localhost:8000/api/auth/"
-// Register user
+const api_url= "http://localhost:8000/api/auth/"
 
-const Register = async(userData)=>{
+// Register user
+const Register = async (userData)=>{
     console.log(userData);
-const response =await axios.post(api_url + "createuser",userData)
+const response = await axios.post(api_url + "createuser", userData)
 return response.formdata
 }
 // Login User
-const login=async(userData)=>{
-const response=await axios.post(api_url+"login",userData)
+const login = async (userData) => {
+const response= await axios.post(api_url+ "login", userData)
 console.log(userData);
 if (response.data)
 {

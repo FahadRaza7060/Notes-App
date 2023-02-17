@@ -13,7 +13,7 @@ function Login() {
 
   useEffect(() => {
     if(data){
-      console.log("data",data)
+      // console.log("data",data)
          let path="/";
           navigate(path);
     }
@@ -22,9 +22,9 @@ function Login() {
       const onSubmit = async(e)=>{
         e.preventDefault();
         const y = await dispatch(login({email,password}));
-        console.log("y.payload",y.payload)
-        const token=y.payload.token
-        console.log("token",token);
+        // console.log("y.payload",y.payload)
+        const token = y.payload.token
+        // console.log("token",token);
         setdata(token);
         setEmail("")
         setPassword("" );

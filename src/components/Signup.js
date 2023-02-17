@@ -16,7 +16,6 @@ function Signup() {
    setEmail("");
    setPassword("");
   }
-  // console.log("onsubmit", onSubmit);
 
   return (
     <>
