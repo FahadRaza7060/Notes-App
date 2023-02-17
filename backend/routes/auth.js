@@ -31,8 +31,10 @@ router.post(
           .status(400)
           .json({ error: "sorry a user with this email alreadt exists" });
       }
+      
       const salt = await bcrypt.genSalt(10);
       const secPass = await bcrypt.hash(req.body.password, salt);
+      
       // create a new user
       user = await User.create({
         name: req.body.name,
@@ -45,10 +47,10 @@ router.post(
         },
       };
 
-      // const authtoken = jwt.sign(data, JWT_SECRET);
+      const authtoken = jwt.sign(data, JWT_SECRET);
 
-      // res.json({ authtoken });
-      res.json({ user });
+      res.json({ authtoken });
+
     } catch (err) {
       console.log(err.message);
       res.status(500).send("some errors occured");
@@ -113,6 +115,7 @@ router.post("/getuser", fetchuser, async (req, res) => {
     console.log(error.message);
     res.status(500).send("internal server error");
   }
+  
 });
 
 module.exports = router;
